@@ -31,8 +31,6 @@ function UserProvider({ children }: UserActProviderProps): JSX.Element {
       await api.get('/posts').then(function (response) {
         posts.push(...response.data)
       })
-      console.log('users: ', users)
-      console.log('posts: ', posts)
 
       setUsersWithPost(
         users.map((user: UserProps) => {

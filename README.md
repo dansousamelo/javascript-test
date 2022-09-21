@@ -13,6 +13,12 @@ estrutura:
 
 # A Aplicação
 
+Para iniciar a aplicação instale as dependências com o comando:
+```npm install```
+
+Feito isso execute a aplicação com o comando:
+```npm run dev```
+
 Logo abaixo temos a aplicação desenvolvida, trata-se de uma listagem simples.
 
 https://user-images.githubusercontent.com/48137972/191414383-a29bb71b-f63c-491c-8b1f-73745180d790.mov

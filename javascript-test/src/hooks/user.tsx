@@ -23,24 +23,28 @@ function UserProvider({ children }: UserActProviderProps): JSX.Element {
   const handleSendFormData = useCallback(async () => {
     const users: any = []
     const posts: any = []
-    await api.get('/users').then(function (response) {
-      users.push(...response.data)
-    })
+    try {
+      await api.get('/users').then(function (response) {
+        users.push(...response.data)
+      })
 
-    await api.get('/posts').then(function (response) {
-      posts.push(...response.data)
-    })
-    console.log('users: ', users)
-    console.log('posts: ', posts)
+      await api.get('/posts').then(function (response) {
+        posts.push(...response.data)
+      })
+      console.log('users: ', users)
+      console.log('posts: ', posts)
 
-    setUsersWithPost(
-      users.map((user: UserProps) => {
-        return {
-          ...user,
-          posts: posts.filter((post: PostProps) => user.id === post.userId),
-        }
-      }),
-    )
+      setUsersWithPost(
+        users.map((user: UserProps) => {
+          return {
+            ...user,
+            posts: posts.filter((post: PostProps) => user.id === post.userId),
+          }
+        }),
+      )
+    } catch (e) {
+      console.log(e)
+    }
   }, [])
 
   useEffect(() => {
